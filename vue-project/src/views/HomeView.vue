@@ -1,11 +1,15 @@
 <script>
 import PreviewContainer from '../components/PreviewContainer.vue'
 import FormContainer from '../components/FormContainer.vue'
+import FormButton from '../components/FormButton.vue'
+import FormTitle from '../components/FormTitle.vue'
 
 export default {
   components:{
     PreviewContainer,
-    FormContainer
+    FormContainer,
+    FormButton,
+    FormTitle
   }
 }
 </script>
@@ -27,6 +31,8 @@ export default {
       </div>
     </div>
     <FormContainer />
+    <FormButton/>
+    <FormTitle/>
     <PreviewContainer />
   </main>
 </template>
