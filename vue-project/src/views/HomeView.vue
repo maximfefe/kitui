@@ -1,7 +1,7 @@
 <script>
 import PreviewContainer from '../components/PreviewContainer.vue'
 import FormContainer from '../components/FormContainer.vue'
-import FormButton from '../components/FormButton.vue'
+import FormButton from '../components/Button/FormButton.vue'
 import FormTitle from '../components/FormTitle.vue'
 
 export default {
@@ -15,24 +15,50 @@ export default {
 </script>
 
 <template>
-  <main>
-    <div class="d-flex align-items-start">
-      <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <button class="nav-link active" type="button">Home</button>
-        <button class="nav-link" type="button">Profile</button>
-        <button class="nav-link" type="button">Messages</button>
-        <button class="nav-link" type="button">Settings</button>
+  <main class="container mx-auto">
+    <div class="flex space-x-10">
+      <ul class="flex-initial w-1/5 menu p-2 rounded-box bg-neutral ">
+        <li>
+          <a>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+            layout
+          </a>
+        </li>
+        <li>
+          <a>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            colors
+          </a>
+        </li>
+        <li>
+          <a>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+            fonts
+          </a>
+        </li>
+        <li>
+          <a class="bg-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+            component
+          </a>
+        </li>
+      </ul>
+      <div class="flex-initial grow w-2/5 rounded-box bg-base-200 p-10">
+          <!-- <FormContainer /> -->
+        <FormButton/>
       </div>
-      <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+
+      <div class="flex-initial w-2/5">
+        <PreviewContainer />
       </div>
     </div>
-    <FormContainer />
-    <FormButton/>
-    <FormTitle/>
-    <PreviewContainer />
+    <!-- <FormTitle/> -->
+    <div class="flex content-center">
+      
+      <ul class="steps w-3/5 m-auto	">
+        <li class="step step-primary">button</li>
+        <li class="step">card</li>
+      </ul>
+    </div>
   </main>
 </template>
