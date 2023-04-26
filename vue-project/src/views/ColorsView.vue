@@ -29,7 +29,7 @@ export default {
         </PreviewContainer>
       </div>
     </div>
-    <StepForm/>
+     <StepForm/>
     <button>Previous</button>
     <button>Next</button>
   </main>

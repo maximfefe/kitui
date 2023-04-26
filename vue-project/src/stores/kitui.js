@@ -51,8 +51,10 @@ export const useKituiStore = defineStore('kitui', {
           margin: '10'
         },
         card:{
-          "margin":"",
-          "border-radius":""
+          backgroundColor: "#007bff",
+          borderRadius: '10',
+          padding: '10',
+          margin: '10'
         }
       }
     }

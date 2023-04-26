@@ -1,16 +1,30 @@
 <script>
 import PreviewContainer from '../components/PreviewContainer.vue'
+import PreviewButton from '../components/Button/PreviewButton.vue'
+import PreviewCard from '../components/Card/PreviewCard.vue'
 
 export default {
   components:{
-    PreviewContainer
+    PreviewContainer,
+    PreviewButton,
+    PreviewCard,
   }
 }
 </script>
 <template>
   <main class="container mx-auto">
     <div class="preview">
-      <PreviewContainer/>
+        <PreviewContainer>
+          <template #content>
+              <PreviewButton/>
+              <div class="flex">
+                <PreviewCard/>
+                <PreviewCard/>
+                <PreviewCard/>
+
+              </div>
+          </template>
+      </PreviewContainer>
     </div>
   </main>
 </template>
