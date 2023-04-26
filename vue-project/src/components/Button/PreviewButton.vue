@@ -6,12 +6,6 @@
 import {useKituiStore} from '../../stores/kitui'
 import {mapStores} from 'pinia'
 export default {
-    methods: {
-        async getStore() {
-            return
-            console.log(this.kituiStore.kitui.component.bouton);
-        },
-    },
     computed: {
         ...mapStores(useKituiStore),
         buttonStyle() {

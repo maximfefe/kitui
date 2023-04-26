@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h2>Form Button</h2>
+    <div class="rounded-box bg-base-200 p-10">
+        <h2>Formulaire pour le Button</h2>
         <form>
             <label for="size">Taille :</label>
             <input type="range" id="size" class="range range-accent" v-model="fontSize" min="10" max="100">
@@ -20,7 +20,6 @@
             <label for="margin">Marge :</label>
             <input type="range" class="range range-info" id="margin" v-model="margin" min="0" max="50">
         </form>
-        <!-- <button :style="buttonStyle">Cliquez ici</button> -->
     </div>
 </template>
 

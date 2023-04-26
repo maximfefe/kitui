@@ -8,9 +8,11 @@ export default {
 }
 </script>
 <template>
-  <div class="preview">
-    <PreviewContainer/>
-  </div>
+  <main class="container mx-auto">
+    <div class="preview">
+      <PreviewContainer/>
+    </div>
+  </main>
 </template>
 
 <style>
