@@ -18,16 +18,16 @@ export const useKituiStore = defineStore('kitui', {
       },
       colors:{
         dark:{
-          "main": "grey",
-          "lighter": "dark",
-          "darker": "white"
+          "main": "#282650",
+          "lighter": "#d7d9af",
+          "darker": "#00001e"
         },
         light:{
-          "main": "grey",
-          "lighter": "white",
-          "darker": "dark"
+          "main": "#c3c7e9",
+          "lighter": "#f5f9ff",
+          "darker": "#3c3816"
         },
-        accent: "white",
+        accent: "#a2aea3",
       },
       fonts:{
         title:{
@@ -44,17 +44,16 @@ export const useKituiStore = defineStore('kitui', {
       component:{
         bouton:{
           fontSize: '20',
-          backgroundColor: "#007bff",
-          color: "#ffffff",
-          borderRadius: '2',
+          backgroundColor: "#8274c8",
+          color: "#1b1924",
+          borderRadius: '20',
           padding: '10',
           margin: '10'
         },
         card:{
-          backgroundColor: "#007bff",
-          borderRadius: '10',
-          padding: '10',
-          margin: '10'
+          borderRadius: '30',
+          padding: '30',
+          margin: '5'
         }
       }
     }

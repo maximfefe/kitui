@@ -7,17 +7,24 @@
 
 <script>
 import {useKituiStore} from '../../stores/kitui'
+import {useIsdarkmodeStore} from '../../stores/isDarkMode'
+
 import {mapStores} from 'pinia'
 export default {
     computed: {
         ...mapStores(useKituiStore),
+        ...mapStores(useIsdarkmodeStore),
         cardStyle() {
             const card = this.kituiStore.kitui.component.card
+            const colors = this.kituiStore.kitui.colors
+            const isDarkMode = this.isdarkmodeStore.isdarkmode
+
             return {
-                backgroundColor: card.backgroundColor,
                 borderRadius: card.borderRadius + 'px',
                 padding: card.padding + 'px',
-                margin: card.margin + 'px'
+                margin: card.margin + 'px',
+                color: isDarkMode ? colors.dark.lighter : colors.light.darker,
+                backgroundColor: isDarkMode ? colors.dark.darker : colors.light.lighter,
             }
         }
     }

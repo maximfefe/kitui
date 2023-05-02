@@ -1,11 +1,15 @@
 <script>
 import PreviewContainer from '../components/PreviewContainer.vue'
+import FormColors from '../components/Colors/FormColors.vue'
+import PreviewColors from '../components/Colors/PreviewColors.vue'
 import StepForm from '../components/StepForm.vue'
 import SubNav from '../components/SubNav.vue'
 
 export default {
   components:{
     PreviewContainer,
+    FormColors,
+    PreviewColors,
     StepForm,
     SubNav
   }
@@ -19,18 +23,17 @@ export default {
         <SubNav/>
       </div>
       <div class="md:w-2/5 w-full p-2">
-        <!-- FORM -->
+        <FormColors/>
       </div>
       <div class="md:w-2/5 w-full p-2">
         <PreviewContainer>
             <template #content>
-                <!-- <PreviewButton/> -->
+                    <PreviewColors/>
             </template>
         </PreviewContainer>
       </div>
     </div>
-     <StepForm/>
-    <button>Previous</button>
-    <button>Next</button>
+    <div>
+    </div>
   </main>
 </template>

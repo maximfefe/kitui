@@ -2,9 +2,6 @@
     <div class="rounded-box bg-base-200 p-10">
         <h2>Formulaire pour la Carte</h2>
         <form>
-            <label for="bg-color">Couleur de fond : {{backgroundColor}}</label><br>
-            <input type="color" id="bg-color" class="rounded" v-model="backgroundColor">
-            <br>
             <label for="border-radius">Arrondi de bordure : {{borderRadius}}px</label>
             <input type="range" class="range range-secondary" id="border-radius" v-model="borderRadius" min="0" max="50">
             <br>
@@ -25,16 +22,12 @@ export default {
     data() {
         const kituiStore = useKituiStore()
         return {
-            backgroundColor: kituiStore.kitui.component.card.backgroundColor,
             borderRadius: kituiStore.kitui.component.card.borderRadius,
             padding: kituiStore.kitui.component.card.padding,
             margin: kituiStore.kitui.component.card.margin
         }
     },
     watch: {
-        backgroundColor(value) {
-            this.kituiStore.updateProperty('component.card.backgroundColor', `${value}`)
-        },
         borderRadius(value) {
             this.kituiStore.updateProperty('component.card.borderRadius', `${value}`)
         },
