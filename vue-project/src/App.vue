@@ -3,8 +3,8 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <header>
-    <div class="container mx-auto navbar shadow rounded-box bg-base-200 m-10">
+  <header class="container mx-auto">
+    <div class="navbar shadow rounded-box bg-base-200 mx-2 my-3">
       <div class="navbar-start">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost btn-circle">

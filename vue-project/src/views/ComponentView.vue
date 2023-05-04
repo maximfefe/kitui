@@ -27,12 +27,8 @@ export default {
         <SubNav/>
       </div>
       <div class="md:w-2/5 w-full p-2">
-        <div v-if="$route.path === '/component/card'">
-            <FormCard/>
-        </div>
-        <div v-else>
-            <FormButton/>
-        </div>
+            <FormCard v-if="$route.path === '/component/card'"/>
+            <FormButton v-else/>
       </div>
       <div class="md:w-2/5 w-full p-2">
         <PreviewContainer>
@@ -45,22 +41,8 @@ export default {
                 </div>
 
             </template>
-        
         </PreviewContainer>
       </div>
-    </div>
-    <div>
-        <StepForm/>
-            <!-- <template #content>
-                <li class="step step-primary">
-                    <router-link active-class="bg-primary" to="/component/button">button</router-link>
-                </li>
-                <li class="step">
-                    <router-link active-class="bg-primary" to="/button">button</router-link>
-                </li>
-            </template> 
-        <StepForm/> -->
-
     </div>
   </main>
 </template>
