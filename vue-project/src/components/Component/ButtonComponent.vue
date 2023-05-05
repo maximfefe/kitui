@@ -10,11 +10,11 @@ export default {
         ...mapStores(useKituiStore),
         buttonStyle() {
             const button = this.kituiStore.kitui.component.bouton
-            // return button
+            const color = this.kituiStore.kitui.colors.accent
             return {
                 fontSize: button.fontSize + 'px',
                 backgroundColor: button.backgroundColor,
-                color: button.color,
+                color: color,
                 borderRadius: button.borderRadius + 'px',
                 padding: button.padding + 'px',
                 margin: button.margin + 'px'

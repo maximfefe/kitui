@@ -1,11 +1,27 @@
 <script>
 import PreviewContainer from '../components/PreviewContainer.vue'
+import FormColors from '../components/Form/FormColors.vue'
+import FormFonts from '../components/Form/FormFonts.vue'
+import FormButton from '../components/Form/FormButton.vue'
+import FormCard from '../components/Form/FormCard.vue'
+import ButtonComponent from '../components/Component/ButtonComponent.vue'
+import CardComponent from '../components/Component/CardComponent.vue'
+import PreviewColors from '../components/PreviewColors.vue'
+import PreviewTitle from '../components/PreviewTitle.vue'
 import StepForm from '../components/StepForm.vue'
 import SubNav from '../components/SubNav.vue'
 
 export default {
   components:{
     PreviewContainer,
+    FormColors,
+    FormFonts,
+    FormButton,
+    FormCard,
+    PreviewColors,
+    PreviewTitle,
+    ButtonComponent,
+    CardComponent,
     StepForm,
     SubNav
   }
@@ -19,18 +35,25 @@ export default {
         <SubNav/>
       </div>
       <div class="md:w-2/5 w-full p-2">
-        <!-- FORM -->
+        <FormColors v-if="$route.path === '/colors'"/>
+        <FormFonts v-if="$route.path === '/fonts'"/>
+        <FormCard v-if="$route.path === '/component/card'"/>
+        <FormButton v-if="$route.path === '/component/button'"/>
       </div>
       <div class="md:w-2/5 w-full p-2">
         <PreviewContainer>
-            <template #content>
-                <!-- <PreviewButton/> -->
-            </template>
+          <template #content>
+            <PreviewColors v-if="$route.path === '/colors'"/>
+            <PreviewTitle v-if="$route.path === '/fonts'"/>
+            <CardComponent v-if="$route.path === '/component/card'">
+              <template #content>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</p>
+              </template>
+            </CardComponent>
+            <ButtonComponent v-if="$route.path === '/component/button'"/>
+          </template>
         </PreviewContainer>
       </div>
     </div>
-    <StepForm/>
-    <button>Previous</button>
-    <button>Next</button>
   </main>
 </template>

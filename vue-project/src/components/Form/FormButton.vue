@@ -1,6 +1,6 @@
 <template>
     <div class="rounded-box bg-base-200 p-10">
-        <h2>Formulaire pour le Button</h2>
+        <h2>Formulaire des boutons</h2>
         <form>
             <label for="size">Taille : {{fontSize}}px</label>
             <input type="range" id="size" class="range range-accent" v-model="fontSize" min="10" max="100">

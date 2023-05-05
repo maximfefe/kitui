@@ -1,7 +1,7 @@
 <template>
     <div :style="cardStyle">
         <h3>Lorem ipsum dolor</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</p>
+        <slot name="content"></slot>
     </div>
 </template>
 

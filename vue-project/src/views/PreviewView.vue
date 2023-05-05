@@ -1,27 +1,47 @@
 <script>
 import PreviewContainer from '../components/PreviewContainer.vue'
-import PreviewButton from '../components/Button/PreviewButton.vue'
-import PreviewCard from '../components/Card/PreviewCard.vue'
+import ButtonComponent from '../components/Component/ButtonComponent.vue'
+import LinkComponent from '../components/Component/LinkComponent.vue'
+import CardComponent from '../components/Component/CardComponent.vue'
 
 export default {
   components:{
     PreviewContainer,
-    PreviewButton,
-    PreviewCard,
+    ButtonComponent,
+    LinkComponent,
+    CardComponent,
   }
 }
 </script>
 <template>
   <main class="container mx-auto">
-    <div class="preview">
-        <PreviewContainer>
+    <div class="preview m-2">
+      <PreviewContainer class="">
           <template #content>
-              <PreviewButton/>
+              <h1>Voici le rendu</h1>
+              <h2>Bouton et lien</h2>
+              <ButtonComponent/>
+              <LinkComponent :link="'#'" :content="'Lien cliquez ici'"/>
+              <h2>Les cartes</h2>
               <div class="flex">
-                <PreviewCard/>
-                <PreviewCard/>
-                <PreviewCard/>
-
+                <CardComponent>
+                  <template #content>
+                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</p>
+                      <ButtonComponent/>
+                  </template>
+                </CardComponent>
+                <CardComponent>
+                  <template #content>
+                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</p>
+                      <ButtonComponent/>
+                  </template>
+                </CardComponent>
+                <CardComponent>
+                  <template #content>
+                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</p>
+                      <ButtonComponent/>
+                  </template>
+                </CardComponent>
               </div>
           </template>
       </PreviewContainer>

@@ -1,9 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PreviewView from '../views/PreviewView.vue'
-import ColorsView from '../views/ColorsView.vue'
-import FontsView from '../views/FontsView.vue'
-import ComponentView from '../views/componentView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,20 +18,20 @@ const router = createRouter({
     {
       path: '/colors',
       name: 'colors',
-      component: ColorsView
+      component: HomeView
     },
     {
       path: '/fonts',
       name: 'fonts',
-      component: FontsView
+      component: HomeView
     },
     {
       path: '/component',
       name: 'component',
-      component: ComponentView,
+      component: HomeView,
       children: [
-        { path: 'button', component: ComponentView },
-        { path: 'card', component: ComponentView }
+        { path: 'button', component: HomeView },
+        { path: 'card', component: HomeView }
       ]
     },
   ]

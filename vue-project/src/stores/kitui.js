@@ -31,13 +31,13 @@ export const useKituiStore = defineStore('kitui', {
       },
       fonts:{
         title:{
-          "family": "",
-          "size": "",
-          "weight": "bold",
+          "fontFamily": "Arial",
+          "fontSize": "26",
+          "fontWeight": "bold",
         },
         text:{
-          "family": "",
-          "size": "",
+          "fontFamily": "Arial",
+          "fontSize": "16",
         }
         
       },
