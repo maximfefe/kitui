@@ -8,9 +8,9 @@
             <label for="bg-color">Couleur de fond : {{backgroundColor}}</label><br>
             <input type="color" id="bg-color" class="rounded" v-model="backgroundColor">
             <br>
-            <label for="text-color">Couleur de texte : {{color}}</label><br>
+            <!-- <label for="text-color">Couleur de texte : {{color}}</label><br>
             <input type="color" class="rounded" id="text-color" v-model="color">
-            <br>
+            <br> -->
             <label for="border-radius">Arrondi de bordure : {{borderRadius}}px</label>
             <input type="range" class="range range-secondary" id="border-radius" v-model="borderRadius" min="0" max="50">
             <br>
@@ -33,7 +33,7 @@ export default {
         return {
             fontSize: kituiStore.kitui.component.bouton.fontSize,
             backgroundColor: kituiStore.kitui.component.bouton.backgroundColor,
-            color: kituiStore.kitui.component.bouton.color,
+            // color: kituiStore.kitui.component.bouton.color,
             borderRadius: kituiStore.kitui.component.bouton.borderRadius,
             padding: kituiStore.kitui.component.bouton.padding,
             margin: kituiStore.kitui.component.bouton.margin
@@ -46,9 +46,9 @@ export default {
         backgroundColor(value) {
             this.kituiStore.updateProperty('component.bouton.backgroundColor', `${value}`)
         },
-        color(value) {
-            this.kituiStore.updateProperty('component.bouton.color', `${value}`)
-        },
+        // color(value) {
+        //     this.kituiStore.updateProperty('component.bouton.color', `${value}`)
+        // },
         borderRadius(value) {
             this.kituiStore.updateProperty('component.bouton.borderRadius', `${value}`)
         },
