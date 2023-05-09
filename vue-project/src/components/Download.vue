@@ -1,3 +1,7 @@
+<template>
+  <button @click="generateCss()">Télécharger mon kit</button>
+</template>
+
 <script>
 import { useKituiStore } from '@/stores/kitui';
 
@@ -6,15 +10,20 @@ export default {
     async generateCss() {
       const store = useKituiStore();
       try {
-        const response = await fetch('http://127.0.0.1:3000/generate-css', {
+        const response = await fetch(import.meta.env.VITE_API_URL + '/generate-css', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(store.kitui)
         });
-        const data = await response.json();
-        console.log(data);
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(new Blob([blob]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'kitui.css'); // Le nom du fichier de téléchargement
+        document.body.appendChild(link);
+        link.click();
       } catch (error) {
         console.error(error);
       }
