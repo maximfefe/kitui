@@ -1,15 +1,19 @@
 <template>
-  <select @select="archiveList()">
-    <option v-for="archive in archives" :value="archive.id">{{ archive.name }}</option>
+  <select class="select select-secondary select-sm w-full max-w-xs" @change="searchArchive($event)">
+    <option>Veuillez selectionner une archive</option>
+    <option v-for="archive in archives" :value="archive">{{ archive }}</option>
   </select>
 </template>
 
 <script>
 
+import {useKituiStore} from "@/stores/kitui";
+
 export default {
   data() {
     return {
-      archives: []
+      archives: [],
+      css: "",
     }
   },
   methods: {
@@ -17,9 +21,28 @@ export default {
       const response = await fetch(import.meta.env.VITE_API_URL + '/archives', {
         method: 'GET',
       });
-      console.log(response);
-      this.archives = await response.json();
+      if (!response.bodyUsed) {
+        this.archives = await response.json();
+      }
+      console.log(this.archives)
+    },
+    async searchArchive(event){
+      if (!confirm('Êtes-vous sur de changer les paramètres actuels ? (Vous perdrez toutes vos modifications)')){
+        return;
+      }
+      const kituiStore = useKituiStore()
+      const response = await fetch(import.meta.env.VITE_API_URL + '/archive?filename=' + event.target.value, {
+        method: 'GET',
+      });
+      if (!response.bodyUsed) {
+        this.css = await response.json();
+      }
+      console.log(this.css);
+      kituiStore.kitui = this.css;
     }
+  },
+  mounted() {
+    this.archiveList();
   }
 };
 

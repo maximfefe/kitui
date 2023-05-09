@@ -3,6 +3,7 @@ import PreviewContainer from '@/components/PreviewContainer.vue'
 import ButtonComponent from '@/components/Component/ButtonComponent.vue'
 import LinkComponent from '@/components/Component/LinkComponent.vue'
 import CardComponent from '@/components/Component/CardComponent.vue'
+import ListArchives from "@/components/Component/ListArchives.vue";
 
 export default {
   components:{
@@ -10,11 +11,13 @@ export default {
     ButtonComponent,
     LinkComponent,
     CardComponent,
+    ListArchives,
   }
 }
 </script>
 <template>
   <main class="container mx-auto">
+    <ListArchives />
     <div class="preview m-2">
       <PreviewContainer class="">
           <template #content>
