@@ -1,8 +1,8 @@
 <script>
-import PreviewContainer from '../components/PreviewContainer.vue'
-import ButtonComponent from '../components/Component/ButtonComponent.vue'
-import LinkComponent from '../components/Component/LinkComponent.vue'
-import CardComponent from '../components/Component/CardComponent.vue'
+import PreviewContainer from '@/components/PreviewContainer.vue'
+import ButtonComponent from '@/components/Component/ButtonComponent.vue'
+import LinkComponent from '@/components/Component/LinkComponent.vue'
+import CardComponent from '@/components/Component/CardComponent.vue'
 
 export default {
   components:{

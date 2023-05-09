@@ -16,7 +16,7 @@
     </div>
 </template>
 <script>
-import {useKituiStore} from '../../stores/kitui'
+import {useKituiStore} from '@/stores/kitui'
 import {mapStores} from 'pinia'
 export default {
     

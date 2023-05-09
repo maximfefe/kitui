@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {useKituiStore} from '../stores/kitui'
+import {useKituiStore} from '@/stores/kitui'
 import {mapStores} from 'pinia'
 import CardComponent from './Component/CardComponent.vue'
 import ButtonComponent from './Component/ButtonComponent.vue'

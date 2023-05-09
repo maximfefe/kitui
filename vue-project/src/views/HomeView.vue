@@ -1,16 +1,16 @@
 <script>
-import PreviewContainer from '../components/PreviewContainer.vue'
-import FormContainer from '../components/Form/FormContainer.vue'
-import FormColors from '../components/Form/FormColors.vue'
-import FormFonts from '../components/Form/FormFonts.vue'
-import FormButton from '../components/Form/FormButton.vue'
-import FormCard from '../components/Form/FormCard.vue'
-import ContainerComponent from '../components/Component/ContainerComponent.vue'
-import ButtonComponent from '../components/Component/ButtonComponent.vue'
-import CardComponent from '../components/Component/CardComponent.vue'
-import PreviewColors from '../components/PreviewColors.vue'
-import PreviewTitle from '../components/PreviewTitle.vue'
-import SubNav from '../components/SubNav.vue'
+import PreviewContainer from '@/components/PreviewContainer.vue'
+import FormContainer from '@/components/Form/FormContainer.vue'
+import FormColors from '@/components/Form/FormColors.vue'
+import FormFonts from '@/components/Form/FormFonts.vue'
+import FormButton from '@/components/Form/FormButton.vue'
+import FormCard from '@/components/Form/FormCard.vue'
+import ContainerComponent from '@/components/Component/ContainerComponent.vue'
+import ButtonComponent from '@/components/Component/ButtonComponent.vue'
+import CardComponent from '@/components/Component/CardComponent.vue'
+import PreviewColors from '@/components/PreviewColors.vue'
+import PreviewTitle from '@/components/PreviewTitle.vue'
+import SubNav from '@/components/SubNav.vue'
 
 export default {
   components:{
