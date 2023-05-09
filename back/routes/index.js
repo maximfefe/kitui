@@ -3,6 +3,7 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
+const { faker } = require('@faker-js/faker');
 
 router.use(express.json());
 router.use(cors());
@@ -89,21 +90,23 @@ function generateCss(data) {
   `;
 
   css += existingCss; // Ajouter le contenu du fichier existant
-  let date = formatedDate();
+  let name = getName();
   // Écrire la nouvelle version du fichier CSS avec le contenu ajouté
-  fs.writeFileSync(path.join(__dirname, `../public/stylesheets/archives/kitui-${date}.css`), css, 'utf-8');
+  fs.writeFileSync(path.join(__dirname, `../public/stylesheets/archives/${name}.css`), css, 'utf-8');
 
-  return `archives/kitui-${date}.css`;
+  return `archives/${name}.css`;
 }
 
-function formatedDate(){
-  let date = new Date();
-  let day = ('0' + date.getDate()).slice(-2);
-  let month = ('0' + (date.getMonth() + 1)).slice(-2);
-  let year = date.getFullYear();
-  let hours = ('0' + date.getHours()).slice(-2);
-  let minutes = ('0' + date.getMinutes()).slice(-2);
-  return `${day}-${month}-${year}-${hours}:${minutes}`;
+function getName() {
+  const animal = faker.animal.type();
+  const state = faker.address.state();
+
+  const filepath = path.join(__dirname, `../public/stylesheets/archives/${state}-${animal}.css`);
+  if (fs.existsSync(filepath)) {
+    return getName();
+  }
+
+  return `${state}-${animal}`;
 }
 
 module.exports = router;
