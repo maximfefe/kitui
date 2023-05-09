@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
         <CardComponent>
             <template #content>
                 <TextComponent>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat odit non minima mollitia sint deleniti in facere, possimus atque, veniam illum, voluptate dignissimos repellendus quasi perspiciatis nisi distinctio dolor accusantium?</TextComponent>

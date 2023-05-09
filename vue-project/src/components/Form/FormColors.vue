@@ -3,13 +3,17 @@
         <h2 class="text-xl">Formulaire des couleurs</h2>
         <form>
             <label for="bg-color">Couleur sombre : {{darkColor}}</label><br>
-            <input type="color" id="bg-color" class="rounded" v-model="darkColor">
+            <input type="color" id="bg-color" class="mx-5 rounded" v-model="darkColor">
+            <input type="color" id="bg-color" class="mx-5 rounded" v-model="kituiStore.kitui.colors.dark.lighter" disabled>
+            <input type="color" id="bg-color" class="mx-5 rounded" v-model="kituiStore.kitui.colors.dark.darker" disabled>
             <br>
             <label for="bg-color">Couleur clair : {{lightColor}}</label><br>
-            <input type="color" id="bg-color" class="rounded" v-model="lightColor">
+            <input type="color" id="bg-color" class="mx-5 rounded" v-model="lightColor">
+            <input type="color" id="bg-color" class="mx-5 rounded" v-model="kituiStore.kitui.colors.light.lighter" disabled>
+            <input type="color" id="bg-color" class="mx-5 rounded" v-model="kituiStore.kitui.colors.light.darker" disabled>
             <br>
             <label for="bg-color">Couleur accent : {{accentColor}}</label><br>
-            <input type="color" id="bg-color" class="rounded" v-model="accentColor">
+            <input type="color" id="bg-color" class="mx-5 rounded" v-model="accentColor">
            
         </form>
     </div>
@@ -24,11 +28,7 @@ export default {
         const kituiStore = useKituiStore()
         return {
             darkColor: kituiStore.kitui.colors.dark.main,
-            darkColorLighter: kituiStore.kitui.colors.dark.lighter,
-            darkColorDarker: kituiStore.kitui.colors.dark.darker,
             lightColor: kituiStore.kitui.colors.light.main,
-            lightColorLighter: kituiStore.kitui.colors.dark.lighter,
-            lightColorDarker: kituiStore.kitui.colors.dark.darker,
             accentColor: kituiStore.kitui.colors.accent,
         }
     },

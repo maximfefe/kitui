@@ -1,7 +1,5 @@
 <template>
-    <div :style="textStyle">
-        <p><slot></slot></p>
-    </div>
+    <p :style="textStyle"><slot></slot></p>
 </template>
 <script>
 import {useKituiStore} from '@/stores/kitui'
