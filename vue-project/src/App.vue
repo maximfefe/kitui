@@ -23,8 +23,8 @@ import download from "@/components/Download.vue";
         </div> -->
       </div>
       <div class="navbar-center">
-        <a class="btn btn-ghost normal-case text-xl">KitUI
-          <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="30" height="30" />
+        <a class="btn btn-ghost normal-case text-xl">
+          <img alt="Vue logo" class="logo-content" src="@/assets/KitUILogo.svg" width="100" height="100" />
         </a>
       </div>
     </div>  
