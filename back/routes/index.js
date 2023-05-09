@@ -2,18 +2,45 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const path = require('path');
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const cors = require('cors');
 
 router.use(express.json());
+router.use(cors());
+
+router.get('/cdn/style/archive', (req, res) => {
+  if (typeof req.query.filename === "undefined" || req.query.filename === ""){
+    return res.status(400).send('Veuillez spécifier le nom du fichier souhaité.');
+  }
+  const filepath = path.join(__dirname, `../public/stylesheets/archives/${req.query.filename}.css`);
+  if (fs.existsSync(filepath)){
+    res.setHeader('Content-Type', 'text/css');
+    res.sendFile(filepath);
+  }else{
+    res.status(404).send('Aucun fichier trouvé.');
+  }
+});
+
+router.get('/archives', (req, res) => {
+  const directoryPath = path.join(__dirname, '../public/stylesheets/archives/');
+  const files = [];
+
+  fs.readdir(directoryPath, function (err, fileList) {
+    if (err) {
+      return res.status(500).send('Une erreur est survenu lors du traitement.')
+    } else {
+      fileList.forEach(function (file) {
+        if (fs.statSync(path.join(directoryPath, file)).isFile()) {
+          files.push(file);
+        }
+      });
+      res.json(files);
+    }
+  });
+});
 
 router.post('/generate-css', (req, res) => {
   const filename = generateCss(req.body);
-  const filepath = path.join(__dirname, `../public/stylesheets/archives/${filename}`);
-  res.json({filename})
+  const filepath = path.join(__dirname, `../public/stylesheets/${filename}`);
   res.setHeader('Content-Type', 'text/css');
   res.setHeader('Content-Disposition', `attachment; filename=${filename}`);
   res.download(filepath, (err) => {
@@ -21,7 +48,6 @@ router.post('/generate-css', (req, res) => {
       console.error(err);
       res.status(500).send('Erreur lors du téléchargement du fichier');
     }
-    //fs.unlinkSync(filepath);
   });
 });
 
