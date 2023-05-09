@@ -9,6 +9,10 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      children: [
+        { path: '/container', component: HomeView },
+        { path: '/grid', component: HomeView }
+      ]
     },
     {
       path: '/preview',

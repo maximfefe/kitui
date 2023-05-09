@@ -11,13 +11,11 @@
 
 <script>
 import {useKituiStore} from '@/stores/kitui'
-import {useIsdarkmodeStore} from '@/stores/isdarkmode'
 
 import {mapStores} from 'pinia'
 export default {
     computed: {
         ...mapStores(useKituiStore),
-        ...mapStores(useIsdarkmodeStore),
         marginStyle() {
             const container = this.kituiStore.kitui.layout.container
             return {

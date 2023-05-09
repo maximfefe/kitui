@@ -12,9 +12,9 @@ export const useKituiStore = defineStore('kitui', {
           "maxWidth": "100",
         },
         grid:{
-          column:"30",
-          gap:"10",
-          fr:"5"
+          "nbColumn":"3",
+          "gridColumnGab": "5",
+          "gridRowGab": "10",
         }
       },
       colors:{
