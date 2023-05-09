@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 const { faker } = require('@faker-js/faker');
+const css = require('css');
 
 router.use(express.json());
 router.use(cors());
@@ -16,6 +17,18 @@ router.get('/cdn/style/archive', (req, res) => {
   if (fs.existsSync(filepath)){
     res.setHeader('Content-Type', 'text/css');
     res.sendFile(filepath);
+  }else{
+    res.status(404).send('Aucun fichier trouvé.');
+  }
+});
+
+router.get('/archive', (req, res) => {
+  if (typeof req.query.filename === "undefined" || req.query.filename === ""){
+    return res.status(400).send('Veuillez spécifier le nom du fichier souhaité.');
+  }
+  const filepath = path.join(__dirname, `../public/stylesheets/archives/${req.query.filename}`);
+  if (fs.existsSync(filepath)){
+    return res.json(storeMaker(getVariables(filepath)));
   }else{
     res.status(404).send('Aucun fichier trouvé.');
   }
@@ -56,8 +69,7 @@ function generateCss(data) {
   // code pour générer le fichier CSS
   const existingCss = fs.readFileSync(path.join(__dirname, '../public/stylesheets/kitui.css'), 'utf-8');
 
-  let css = `/* Définition des variables globales */
-    :root {
+  let css = `:root {
     --title-font: ${data.fonts.title.fontFamily};
     --title-size: ${data.fonts.title.fontSize}px;
     --title-weight: ${data.fonts.title.fontWeight};
@@ -76,8 +88,7 @@ function generateCss(data) {
     --kitui-layout-container-paddingY: ${data.layout.container.paddingY}px;
     --kitui-layout-container-paddingX: ${data.layout.container.paddingX}px;
     --kitui-layout-container-maxWidth: ${data.layout.container.maxWidth}%;
-    --kitui-layout-grid-column: ${data.layout.grid.column}%;
-    --kitui-layout-grid-fr:${data.layout.grid.fr}fr;
+    --kitui-layout-grid-column: ${data.layout.grid.column};
     --kitui-layout-grid-gap:${data.layout.grid.gap}px;
     --kitui-colors-dark-main: ${data.colors.dark.main};
     --kitui-colors-dark-lighter: ${data.colors.dark.lighter};
@@ -107,6 +118,74 @@ function getName() {
   }
 
   return `${state}-${animal}`;
+}
+
+function getVariables(path){
+  const cssString = fs.readFileSync(path, 'utf8');
+  const parsedCss = css.parse(cssString);
+  return parsedCss.stylesheet.rules[0].declarations
+      .filter(rule => rule.type === 'declaration')
+      .reduce((result, rule) => {
+        result[rule.property] = rule.value;
+        return result;
+      }, {});
+}
+
+
+function storeMaker(variables) {
+  return {
+    layout:{
+      container: {
+        "marginX": variables['--kitui-layout-container-marginX'].slice(0, -2),
+        "marginY": variables['--kitui-layout-container-marginY'].slice(0, -2),
+        "paddingX": variables['--kitui-layout-container-paddingY'].slice(0, -2),
+        "paddingY": variables['--kitui-layout-container-paddingX'].slice(0, -2),
+        "maxWidth": variables['--kitui-layout-container-maxWidth'].slice(0, -1),
+      },
+      grid:{
+        column: variables['--kitui-layout-grid-column'].slice(0, -1),
+        gap: variables['--kitui-layout-grid-gap'].slice(0, -2),
+      }
+    },
+    colors:{
+      dark:{
+        "main": variables['--kitui-colors-dark-main'],
+        "lighter": variables['--kitui-colors-dark-lighter'],
+        "darker": variables['--kitui-colors-dark-darker']
+      },
+      light:{
+        "main": variables['--kitui-colors-light-main'],
+        "lighter": variables['--kitui-colors-light-lighter'],
+        "darker": variables['--kitui-colors-light-darker']
+      },
+      accent: variables['--kitui-colors-accent'],
+    },
+    fonts:{
+      title:{
+        "fontFamily": variables['--title-font'],
+        "fontSize": variables['--title-size'].slice(0, -2),
+        "fontWeight": variables['--title-weight'],
+      },
+      text:{
+        "fontFamily": variables['--text-font'],
+        "fontSize": variables['--text-size'].slice(0, -2),
+      }
+    },
+    component:{
+      bouton:{
+        fontSize: variables['--btn-font-size'].slice(0, -2),
+        backgroundColor: variables['--btn-bg-color'],
+        borderRadius: variables['--btn-border-radius'].slice(0, -2),
+        padding: variables['--btn-padding'].slice(0, -2),
+        margin: variables['--btn-margin'].slice(0, -2)
+      },
+      card:{
+        borderRadius: variables['--card-border-radius'].slice(0, -2),
+        padding: variables['--card-padding'].slice(0, -2),
+        margin: variables['--card-margin'].slice(0, -2)
+      }
+    }
+  }
 }
 
 module.exports = router;
