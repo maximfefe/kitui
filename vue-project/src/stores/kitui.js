@@ -4,12 +4,12 @@ export const useKituiStore = defineStore('kitui', {
   state: () => ({
     kitui: {
       layout:{
-        conteneur: {
-          div:{
-            "margin": "0px 0px",
-            "padding": "0px 0px",
-            "max-width":0,
-          },
+        container: {
+          "marginX": "20",
+          "marginY": "20",
+          "paddingX": "30",
+          "paddingY": "30",
+          "maxWidth": "50",
         },
         grid:{
           column:"",
