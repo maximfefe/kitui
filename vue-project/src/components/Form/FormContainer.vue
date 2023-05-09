@@ -1,6 +1,6 @@
 <template>
     <div class="rounded-box bg-base-200 p-10">
-        <h2>Formulaire du conteneur</h2>
+        <h2 class="text-xl">Formulaire du conteneur</h2>
         <form>
             <label for="margin-y">Margin horizontal : {{marginX}}px</label><br>
             <input type="range" class="range range-success" id="margin-x" v-model="marginX" min="0" max="50">

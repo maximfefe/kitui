@@ -1,6 +1,6 @@
 <template>
     <div class="rounded-box bg-base-200 p-10">
-        <h2>Formulaire des couleurs</h2>
+        <h2 class="text-xl">Formulaire des couleurs</h2>
         <form>
             <label for="bg-color">Couleur sombre : {{darkColor}}</label><br>
             <input type="color" id="bg-color" class="rounded" v-model="darkColor">

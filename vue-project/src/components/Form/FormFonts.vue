@@ -1,7 +1,7 @@
 <template>
     <div class="rounded-box bg-base-200 p-10">
-        <h2>Formulaire de police</h2>
-        <h3>Titre :</h3>
+        <h2 class="text-xl">Formulaire de police</h2>
+        <h3 class="text-lg">Titre :</h3>
         <label for="fontSize">Taille max : {{ titleFontSize }}px</label>
         <input class="range range-success" type="range" id="fontSize" v-model="titleFontSize" min="10" max="100">
         <br>
@@ -34,7 +34,7 @@
             <option value="800">800</option>
             <option value="900">900</option>
         </select>
-        <h3>Paragraphe :</h3>
+        <h3 class="text-lg">Paragraphe :</h3>
         <label for="textFontSize">Taille : {{ textFontSize }}px</label>
         <input class="range range-error" type="range" id="textFontSize" v-model="textFontSize" min="8" max="50">
         <br>

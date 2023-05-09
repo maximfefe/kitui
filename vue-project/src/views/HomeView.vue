@@ -10,7 +10,6 @@ import ButtonComponent from '../components/Component/ButtonComponent.vue'
 import CardComponent from '../components/Component/CardComponent.vue'
 import PreviewColors from '../components/PreviewColors.vue'
 import PreviewTitle from '../components/PreviewTitle.vue'
-import StepForm from '../components/StepForm.vue'
 import SubNav from '../components/SubNav.vue'
 
 export default {
@@ -26,7 +25,6 @@ export default {
     PreviewTitle,
     ButtonComponent,
     CardComponent,
-    StepForm,
     SubNav
   }
 }

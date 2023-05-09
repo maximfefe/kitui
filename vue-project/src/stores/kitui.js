@@ -45,7 +45,6 @@ export const useKituiStore = defineStore('kitui', {
         bouton:{
           fontSize: '20',
           backgroundColor: "#8274c8",
-          color: "#1b1924",
           borderRadius: '20',
           padding: '10',
           margin: '10'

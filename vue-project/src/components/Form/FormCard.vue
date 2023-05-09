@@ -1,6 +1,6 @@
 <template>
     <div class="rounded-box bg-base-200 p-10">
-        <h2>Formulaire de carte</h2>
+        <h2 class="text-xl">Formulaire de carte</h2>
         <form>
             <label for="border-radius">Arrondi de bordure : {{borderRadius}}px</label>
             <input type="range" class="range range-secondary" id="border-radius" v-model="borderRadius" min="0" max="50">
