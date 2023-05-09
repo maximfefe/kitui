@@ -18,28 +18,34 @@ export default {
     <div class="preview m-2">
       <PreviewContainer class="">
           <template #content>
-              <h1>Voici le rendu</h1>
-              <h2>Bouton et lien</h2>
+              <TitleComponent reductSize="1">
+                <h1>Rendu de votre configuration</h1>
+              </TitleComponent>
+              <TitleComponent reductSize="0.9">
+                <h2>Bouton et lien</h2>
+              </TitleComponent>
               <ButtonComponent/>
               <LinkComponent :link="'#'" :content="'Lien cliquez ici'"/>
-              <h2>Les cartes</h2>
+              <TitleComponent reductSize="0.9">
+                <h2>Les cartes</h2>
+              </TitleComponent>
               <div class="flex">
                 <CardComponent>
                   <template #content>
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</p>
-                      <ButtonComponent/>
+                    <TextComponent>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</TextComponent>
+                    <ButtonComponent/>
                   </template>
                 </CardComponent>
                 <CardComponent>
                   <template #content>
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</p>
-                      <ButtonComponent/>
+                    <TextComponent>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</TextComponent>
+                    <ButtonComponent/>
                   </template>
                 </CardComponent>
                 <CardComponent>
                   <template #content>
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</p>
-                      <ButtonComponent/>
+                    <TextComponent>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</TextComponent>
+                    <ButtonComponent/>
                   </template>
                 </CardComponent>
               </div>

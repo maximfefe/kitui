@@ -11,9 +11,11 @@ export default {
         ...mapStores(useKituiStore),
         accentStyle() {
             const accent = this.kituiStore.kitui.colors.accent
+            const fontFamily = this.kituiStore.kitui.fonts.text.fontFamily
             console.log(accent);
             return {
                 color: accent,
+                fontFamily: fontFamily,
             }
         }
     }

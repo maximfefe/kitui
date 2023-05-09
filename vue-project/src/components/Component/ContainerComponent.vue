@@ -1,8 +1,10 @@
 <template>
     <div class="border-success" :style="marginStyle">
         <div class="border-info" :style="paddingStyle">
-            <h3>Lorem ipsum dolor</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat odit non minima mollitia sint deleniti in facere, possimus atque, veniam illum, voluptate dignissimos repellendus quasi perspiciatis nisi distinctio dolor accusantium?</p>
+            <TitleComponent reductSize="0.8">
+                <h3>Lorem ipsum dolor</h3>
+            </TitleComponent>
+            <TextComponent>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat odit non minima mollitia sint deleniti in facere, possimus atque, veniam illum, voluptate dignissimos repellendus quasi perspiciatis nisi distinctio dolor accusantium?</TextComponent>
         </div>
     </div>
 </template>

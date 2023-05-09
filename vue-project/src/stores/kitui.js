@@ -9,11 +9,11 @@ export const useKituiStore = defineStore('kitui', {
           "marginY": "20",
           "paddingX": "30",
           "paddingY": "30",
-          "maxWidth": "50",
+          "maxWidth": "100",
         },
         grid:{
           column:"",
-          gab:""          
+          gap:""          
         }
       },
       colors:{

@@ -18,7 +18,6 @@ export default {
         colorStyle() {
             const colors = this.kituiStore.kitui.colors
             const isDarkMode = this.isdarkmodeStore.isdarkmode
-            const container = this.kituiStore.kitui.layout.container
 
             return {
                 backgroundColor: isDarkMode ? colors.dark.main : colors.light.main,

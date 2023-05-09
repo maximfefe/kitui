@@ -1,6 +1,8 @@
 <template>
     <div :style="cardStyle">
-        <h3>Lorem ipsum dolor</h3>
+        <TitleComponent reductSize="0.8">
+            <h3>Lorem ipsum dolor</h3>
+        </TitleComponent>
         <slot name="content"></slot>
     </div>
 </template>

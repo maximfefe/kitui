@@ -53,7 +53,7 @@ export default {
             <PreviewTitle v-if="$route.path === '/fonts'"/>
             <CardComponent v-if="$route.path === '/component/card'">
               <template #content>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</p>
+                <TextComponent>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat odit non minima mollitia sint deleniti in facere, possimus atque, veniam illum, voluptate dignissimos repellendus quasi perspiciatis nisi distinctio dolor accusantium?</TextComponent>
               </template>
             </CardComponent>
             <ButtonComponent v-if="$route.path === '/component/button'"/>
