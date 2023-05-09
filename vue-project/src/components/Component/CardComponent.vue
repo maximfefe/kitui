@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import {useKituiStore} from '../../stores/kitui'
-import {useIsdarkmodeStore} from '../../stores/isDarkMode'
+import {useKituiStore} from '@/stores/kitui'
+import {useIsdarkmodeStore} from '@/stores/isDarkMode'
 
 import {mapStores} from 'pinia'
 export default {
