@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import download from "@/components/Download.vue";
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <ul class="menu menu-horizontal px-1">
         <li><RouterLink to="/">Générateur</RouterLink></li>
         <li><RouterLink to="/preview">Aperçu</RouterLink></li>
+        <li><button @click="download.methods.generateCss()">Télécharger mon kit</button></li>
       </ul>
         <!-- <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost btn-circle">
