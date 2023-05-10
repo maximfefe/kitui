@@ -34,7 +34,9 @@ export default {
 <template>
   <main class="container mx-auto">
     <div class="preview m-2">
-      <ListArchives />
+      <div class="rounded-box bg-base-200 p-2 mb-2">
+        <ListArchives />
+      </div>
       <PreviewContainer class="">
           <template #content>
             <TitleComponent reductSize="1">

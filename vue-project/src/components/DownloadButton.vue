@@ -6,6 +6,7 @@
 import { useKituiStore } from '@/stores/kitui';
 
 export default {
+  // props:['classe'],
   methods: {
     async generateCss() {
       const store = useKituiStore();

@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import Download from "@/components/Download.vue";
+import DownloadButton from "@/components/DownloadButton.vue";
 </script>
 
 <template>
@@ -14,7 +14,7 @@ import Download from "@/components/Download.vue";
           <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-200 rounded-box w-52">
             <li><RouterLink to="/">Accueil</RouterLink></li>
             <li><RouterLink to="/preview">Aperçu</RouterLink></li>
-            <li><Download /></li>
+            <li><DownloadButton /></li>
           </ul>
         </div>
       </div>

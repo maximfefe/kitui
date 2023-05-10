@@ -1,9 +1,12 @@
 <template>
-  <select class="select select-secondary select-sm w-full max-w-xs" @change="searchArchive($event)">
-    <option>Veuillez selectionner une archive</option>
-    <option v-for="archive in archives" :value="archive">{{ archive }}</option>
-  </select>
-  <ButtonCopyComponent v-if="showButton" :cdnArchive="cdnArchive" ref="ButtonCopyComponent" />
+  <div class="flex justify-evenly">
+      <select class="select select-secondary select-sm w-full max-w-xs" @change="searchArchive($event)">
+        <option disabled selected>Veuillez selectionner une archive</option>
+        <option v-for="archive in archives" :value="archive">{{ archive }}</option>
+      </select>
+    <ButtonCopyComponent v-if="showButton" :cdnArchive="cdnArchive"  ref="ButtonCopyComponent" />
+
+  </div>
 </template>
 
 <script>
@@ -33,10 +36,6 @@ export default {
       }
     },
     async searchArchive(event){
-      // if (!confirm('Êtes-vous sur de changer les paramètres actuels ? (Vous perdrez toutes vos modifications)')){
-      //   return;
-      // }
-      // const kituiStore = useKituiStore()
       const response = await fetch(import.meta.env.VITE_API_URL + '/archive?filename=' + event.target.value, {
         method: 'GET',
       });
@@ -48,7 +47,7 @@ export default {
       this.showButton = true;
       this.cdnArchive = import.meta.env.VITE_API_URL + "/cdn/style/archive?filename=" + event.target.value.slice(0, -4);
       await this.$nextTick(() => {
-        this.$refs.ButtonCopyComponent.resetButtonText();
+        this.$refs.ButtonCopyComponent.resetButton();
       });
     },
   },
