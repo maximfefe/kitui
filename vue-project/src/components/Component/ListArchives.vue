@@ -3,21 +3,21 @@
     <option>Veuillez selectionner une archive</option>
     <option v-for="archive in archives" :value="archive">{{ archive }}</option>
   </select>
-  <ModalComponent v-if="showModal" :cdnArchive="cdnArchive" ref="modalComponent" />
+  <ButtonCopyComponent v-if="showButton" :cdnArchive="cdnArchive" ref="ButtonCopyComponent" />
 </template>
 
 <script>
 
 import {useKituiStore} from "@/stores/kitui";
-import ModalComponent from "@/components/Component/ModalComponent.vue";
+import ButtonCopyComponent from "@/components/Component/ButtonCopyComponent.vue";
 
 export default {
-  components: {ModalComponent},
+  components: {ButtonCopyComponent},
   data() {
     return {
       archives: [],
       css: "",
-      showModal: false,
+      showButton: false,
       cdnArchive: null,
     }
   },
@@ -42,10 +42,10 @@ export default {
         this.css = await response.json();
       }
       kituiStore.kitui = this.css;
-      this.showModal = true;
+      this.showButton = true;
       this.cdnArchive = import.meta.env.VITE_API_URL + "/cdn/style/archive?filename=" + event.target.value.slice(0, -4);
       await this.$nextTick(() => {
-        this.$refs.modalComponent.resetButtonText();
+        this.$refs.ButtonCopyComponent.resetButtonText();
       });
     },
   },
