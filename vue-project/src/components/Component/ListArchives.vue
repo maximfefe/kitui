@@ -1,11 +1,16 @@
 <template>
-  <div class="flex justify-evenly">
-      <select class="select select-secondary select-sm w-full max-w-xs" @change="searchArchive($event)">
+  <div class="flex justify-center">
+    <div class="indicator"   >
+      <div class="indicator-item tooltip tooltip-right" data-tip="Vous perdrez vos modifications en cours." >
+        <span class="badge">!</span>
+      </div>
+      <select class="select select-secondary select-sm max-w-xs me-2" @change="searchArchive($event)">
         <option disabled selected>Veuillez selectionner une archive</option>
         <option v-for="archive in archives" :value="archive">{{ archive }}</option>
       </select>
+    </div>
     <ButtonCopyComponent v-if="showButton" :cdnArchive="cdnArchive"  ref="ButtonCopyComponent" />
-
+    
   </div>
 </template>
 
