@@ -11,10 +11,10 @@
                 <span>4</span>
                 <span>5</span>
             </div>
-            <label for="gridcolumngab">Marge entre les colonnes : {{gridColumnGab}}px</label><br>
-            <input type="range" class="range range-success" id="gridcolumngab" v-model="gridColumnGab" min="0" max="50">
-            <label for="gridrowgab">Marge entre les rangées : {{gridRowGab}}px</label><br>
-            <input type="range" class="range range-info" id="gridrowgab" v-model="gridRowGab" min="0" max="50">
+            <label for="gridcolumngap">Marge entre les colonnes : {{gridColumnGap}}px</label><br>
+            <input type="range" class="range range-success" id="gridcolumngap" v-model="gridColumnGap" min="0" max="50">
+            <label for="gridrowgap">Marge entre les rangées : {{gridRowGap}}px</label><br>
+            <input type="range" class="range range-info" id="gridrowgap" v-model="gridRowGap" min="0" max="50">
         </form>
     </div>
 </template>
@@ -27,19 +27,19 @@ export default {
         const kituiStore = useKituiStore()
         return {
             nbColumn: kituiStore.kitui.layout.grid.nbColumn,
-            gridColumnGab: kituiStore.kitui.layout.grid.gridColumnGab,
-            gridRowGab: kituiStore.kitui.layout.grid.gridRowGab,
+            gridColumnGap: kituiStore.kitui.layout.grid.gridColumnGap,
+            gridRowGap: kituiStore.kitui.layout.grid.gridRowGap,
         }
     },
     watch: {
         nbColumn(value) {
             this.kituiStore.updateProperty('layout.grid.nbColumn', `${value}`)
         },
-        gridColumnGab(value) {
-            this.kituiStore.updateProperty('layout.grid.gridColumnGab', `${value}`)
+        gridColumnGap(value) {
+            this.kituiStore.updateProperty('layout.grid.gridColumnGap', `${value}`)
         },
-        gridRowGab(value) {
-            this.kituiStore.updateProperty('layout.grid.gridRowGab', `${value}`)
+        gridRowGap(value) {
+            this.kituiStore.updateProperty('layout.grid.gridRowGap', `${value}`)
         },
     },
     computed: {

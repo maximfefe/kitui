@@ -13,8 +13,8 @@ export const useKituiStore = defineStore('kitui', {
         },
         grid:{
           "nbColumn":"3",
-          "gridColumnGab": "5",
-          "gridRowGab": "10",
+          "gridColumnGap": "5",
+          "gridRowGap": "10",
         }
       },
       colors:{

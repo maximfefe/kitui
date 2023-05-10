@@ -16,8 +16,8 @@ export default {
             return {
                 display: `grid`,
                 gridTemplateColumns: `repeat(${grid.nbColumn}, 1fr)`,
-                gridColumnGap: `${grid.gridColumnGab}px`,
-                gridRowGap: `${grid.gridRowGab}px`,
+                gridColumnGap: `${grid.gridColumnGap}px`,
+                gridRowGap: `${grid.gridRowGap}px`,
                 justifyItems: 'center',
             }
         }
