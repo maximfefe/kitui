@@ -53,6 +53,10 @@ router.get('/archives', (req, res) => {
 });
 
 router.post('/generate-css', (req, res) => {
+  const archivesDirectoryPath = path.join(__dirname, '../public/stylesheets/archives');
+  if (!fs.existsSync(archivesDirectoryPath)) {
+    fs.mkdirSync(archivesDirectoryPath);
+  }
   let filename = generateCss(req.body);
   if (req.body.name !== null){
     const directoryPath = path.join(__dirname, '../public/stylesheets/')
