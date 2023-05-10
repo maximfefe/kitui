@@ -1,5 +1,5 @@
 /* Styles pour les différents éléments */
-.container{margin: var(--kitui-layout-container-marginY)px var(--kitui-layout-container-marginX)px;padding: var(--kitui-layout-container-paddingY)px var(--kitui-layout-container-paddingX)px;max-width: var(--kitui-layout-container-maxWidth);}
+.container{margin: var(--kitui-layout-container-marginY) var(--kitui-layout-container-marginX);padding: var(--kitui-layout-container-paddingY) var(--kitui-layout-container-paddingX);max-width: var(--kitui-layout-container-maxWidth);}
 .grid{display: grid;grid-template-columns: repeat(var(--kitui-layout-grid-column), 1fr);grid-column-gap: var(--kitui-layout-grid-column-gap);grid-row-gap: var(--kitui-layout-grid-row-gap)}
 h1, h2, h3, h4, h5, h6 {font-family: var(--title-font);font-weight: var(--title-weight);}
 h1{font-size: var(--title-size);}
@@ -9,8 +9,8 @@ h4{font-size: var(--title-size);}
 h5{font-size: var(--title-size);}
 h6{font-size: var(--title-size);}
 p{font-family: var(--text-font);font-size: var(--text-size);}
-.btn{font-size: var(--btn-font-size);background-color: var(--btn-bg-color);color: var(--kitui-colors-accent);border-radius: var(--btn-border-radius)px;padding: var(--btn-padding)px;margin: var(--btn-margin)px;}
-.card{border-radius: var(--card-border-radius)px;padding: var(--card-padding)px;margin: var(--card-margin)px;}
+.btn{font-size: var(--btn-font-size);background-color: var(--btn-bg-color);color: var(--kitui-colors-accent);border-radius: var(--btn-border-radius);padding: var(--btn-padding);margin: var(--btn-margin); border:none;}
+.card{border-radius: var(--card-border-radius);padding: var(--card-padding);margin: var(--card-margin);}
 
 /* Définition des couleurs à partir du store */
 .dark-primary{background-color: var(--kitui-colors-dark-main);color: var(--kitui-colors-dark-lighter);}
@@ -18,3 +18,4 @@ p{font-family: var(--text-font);font-size: var(--text-size);}
 .light-primary{background-color: var(--kitui-colors-light-main);color: var(--kitui-colors-light-darker);}
 .light-secondary{background-color: var(--kitui-colors-light-lighter);}
 .accent{color: var(--kitui-colors-accent);}
+body{margin:0px}
