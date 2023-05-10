@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 export const useKituiStore = defineStore('kitui', {
   state: () => ({
     kitui: {
+      name: null,
       layout:{
         container: {
           "marginX": "20",

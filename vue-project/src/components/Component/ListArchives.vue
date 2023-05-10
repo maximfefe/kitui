@@ -36,6 +36,8 @@ export default {
       }
     },
     async searchArchive(event){
+
+      this.kituiStore.updateProperty('name', `${event.target.value}`)
       const response = await fetch(import.meta.env.VITE_API_URL + '/archive?filename=' + event.target.value, {
         method: 'GET',
       });

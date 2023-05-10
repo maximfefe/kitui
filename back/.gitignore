@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Archive
-public/stylesheets/archives/
+public/stylesheets/archives/*
 
 # Runtime data
 pids
