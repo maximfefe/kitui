@@ -144,7 +144,7 @@ function storeMaker(variables) {
         "maxWidth": variables['--kitui-layout-container-maxWidth'].slice(0, -1),
       },
       grid:{
-        nbColumn: variables['--kitui-layout-grid-column'].slice(0, -1),
+        nbColumn: variables['--kitui-layout-grid-column'],
         gridColumnGap: variables['--kitui-layout-grid-column-gap'].slice(0, -2),
         gridRowGap: variables['--kitui-layout-grid-row-gap'].slice(0, -2),
       }
