@@ -5,7 +5,7 @@ import DownloadButton from "@/components/DownloadButton.vue";
 
 <template>
   <header class="container mx-auto">
-    <div class="navbar shadow rounded-box bg-base-200 mx-2 my-3">
+    <div class="navbar shadow rounded-box bg-base-200  my-3">
       <div class="navbar-start">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost btn-circle">
@@ -22,6 +22,11 @@ import DownloadButton from "@/components/DownloadButton.vue";
         <RouterLink to="/" class="btn btn-ghost normal-case text-xl">
           <img alt="Vue logo" class="logo-content" src="@/assets/KitUILogo.svg" width="100" height="100" />
         </RouterLink>
+      </div>
+      <div class="navbar-end"> 
+        <div class="tooltip tooltip-left me-2" data-tip="Un bug ? N'hésitez pas à nous écrire">
+          <a href="https://debugme.krowon.fr/ticket-new" class="btn btn-xs btn-primary">?</a>
+        </div>
       </div>
     </div>  
   </header>
