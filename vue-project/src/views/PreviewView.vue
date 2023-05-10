@@ -33,8 +33,8 @@ export default {
 </script>
 <template>
   <main class="container mx-auto">
-    <ListArchives />
     <div class="preview m-2">
+      <ListArchives />
       <PreviewContainer class="">
           <template #content>
             <TitleComponent reductSize="1">
@@ -61,7 +61,7 @@ export default {
               <h2>La grille</h2>
             </TitleComponent>
             <GridComponent>
-              <div v-for="index in parseInt(nbColumn)" :key="index">
+              <div v-for="index in parseInt(kituiStore.kitui.layout.grid.nbColumn)" :key="index">
                 <CardComponent>
                   <template #content>
                     <TextComponent>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eos consequuntur ratione a, esse laudantium veritatis. Qui rerum sunt blanditiis tenetur facere fuga voluptates nam distinctio, inventore corporis voluptatum. Enim?</TextComponent>

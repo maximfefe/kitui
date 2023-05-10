@@ -73,5 +73,8 @@ export const useKituiStore = defineStore('kitui', {
       }
       updateObject(this.kitui, prop, value)
     },
+    setKitUI(value){
+      this.kitui = value;
+    }
   }
 })

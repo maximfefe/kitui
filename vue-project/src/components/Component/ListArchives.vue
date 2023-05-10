@@ -9,6 +9,8 @@
 <script>
 
 import {useKituiStore} from "@/stores/kitui";
+import {mapStores} from 'pinia'
+
 import ButtonCopyComponent from "@/components/Component/ButtonCopyComponent.vue";
 
 export default {
@@ -31,17 +33,18 @@ export default {
       }
     },
     async searchArchive(event){
-      if (!confirm('Êtes-vous sur de changer les paramètres actuels ? (Vous perdrez toutes vos modifications)')){
-        return;
-      }
-      const kituiStore = useKituiStore()
+      // if (!confirm('Êtes-vous sur de changer les paramètres actuels ? (Vous perdrez toutes vos modifications)')){
+      //   return;
+      // }
+      // const kituiStore = useKituiStore()
       const response = await fetch(import.meta.env.VITE_API_URL + '/archive?filename=' + event.target.value, {
         method: 'GET',
       });
       if (!response.bodyUsed) {
         this.css = await response.json();
       }
-      kituiStore.kitui = this.css;
+      this.kituiStore.setKitUI(this.css)
+
       this.showButton = true;
       this.cdnArchive = import.meta.env.VITE_API_URL + "/cdn/style/archive?filename=" + event.target.value.slice(0, -4);
       await this.$nextTick(() => {
@@ -51,6 +54,9 @@ export default {
   },
   mounted() {
     this.archiveList();
+  },
+  computed: {
+    ...mapStores(useKituiStore),
   }
 };
 
