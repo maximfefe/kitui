@@ -88,8 +88,9 @@ function generateCss(data) {
     --kitui-layout-container-paddingY: ${data.layout.container.paddingY}px;
     --kitui-layout-container-paddingX: ${data.layout.container.paddingX}px;
     --kitui-layout-container-maxWidth: ${data.layout.container.maxWidth}%;
-    --kitui-layout-grid-column: ${data.layout.grid.column};
-    --kitui-layout-grid-gap:${data.layout.grid.gap}px;
+    --kitui-layout-grid-column: ${data.layout.grid.nbColumn};
+    --kitui-layout-grid-column-gap:${data.layout.grid.gridColumnGap}px;
+    --kitui-layout-grid-row-gap:${data.layout.grid.gridRowGap}px;
     --kitui-colors-dark-main: ${data.colors.dark.main};
     --kitui-colors-dark-lighter: ${data.colors.dark.lighter};
     --kitui-colors-dark-darker: ${data.colors.dark.darker};
@@ -143,8 +144,9 @@ function storeMaker(variables) {
         "maxWidth": variables['--kitui-layout-container-maxWidth'].slice(0, -1),
       },
       grid:{
-        column: variables['--kitui-layout-grid-column'].slice(0, -1),
-        gap: variables['--kitui-layout-grid-gap'].slice(0, -2),
+        nbColumn: variables['--kitui-layout-grid-column'].slice(0, -1),
+        gridColumnGap: variables['--kitui-layout-grid-column-gap'].slice(0, -2),
+        gridRowGap: variables['--kitui-layout-grid-row-gap'].slice(0, -2),
       }
     },
     colors:{

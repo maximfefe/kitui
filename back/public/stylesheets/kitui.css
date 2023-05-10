@@ -1,6 +1,6 @@
 /* Styles pour les différents éléments */
 .container{margin: var(--kitui-layout-container-marginY)px var(--kitui-layout-container-marginX)px;padding: var(--kitui-layout-container-paddingY)px var(--kitui-layout-container-paddingX)px;max-width: var(--kitui-layout-container-maxWidth);}
-.grid{display: grid;grid-template-columns: repeat(var(--kitui-layout-grid-column), 1);grid-gap: var(--kitui-layout-grid-gap);}
+.grid{display: grid;grid-template-columns: repeat(var(--kitui-layout-grid-column), 1fr);grid-column-gap: var(--kitui-layout-grid-column-gap);grid-row-gap: var(--kitui-layout-grid-row-gap)}
 h1, h2, h3, h4, h5, h6 {font-family: var(--title-font);font-weight: var(--title-weight);}
 h1{font-size: var(--title-size);}
 h2{font-size: var(--title-size);}
