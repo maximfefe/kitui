@@ -19,9 +19,9 @@ import Download from "@/components/Download.vue";
         </div>
       </div>
       <div class="navbar-center">
-        <a class="btn btn-ghost normal-case text-xl">
+        <RouterLink to="/" class="btn btn-ghost normal-case text-xl">
           <img alt="Vue logo" class="logo-content" src="@/assets/KitUILogo.svg" width="100" height="100" />
-        </a>
+        </RouterLink>
       </div>
     </div>  
   </header>
