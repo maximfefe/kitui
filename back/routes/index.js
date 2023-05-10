@@ -28,7 +28,7 @@ router.get('/archive', (req, res) => {
   }
   const filepath = path.join(__dirname, `../public/stylesheets/archives/${req.query.filename}`);
   if (fs.existsSync(filepath)){
-    return res.json(storeMaker(getVariables(filepath)));
+    return res.json(storeMaker(req.query.filename, getVariables(filepath)));
   }else{
     res.status(404).send('Aucun fichier trouvé.');
   }
@@ -53,7 +53,25 @@ router.get('/archives', (req, res) => {
 });
 
 router.post('/generate-css', (req, res) => {
-  const filename = generateCss(req.body);
+  let filename = generateCss(req.body);
+  if (req.body.name !== null){
+    const directoryPath = path.join(__dirname, '../public/stylesheets/')
+    fs.readFile(directoryPath + filename, (err1, newCss) => {
+      if (err1) throw err1;
+      fs.readFile(`${directoryPath}archives/${req.body.name}`, (err2, existingCss) => {
+        if (err2) throw err2;
+        // Si le nouveau fichier est identique à l'ancien (Téléchargement d'une archive sans modifications)
+        if (newCss.toString() === existingCss.toString()) {
+          // On supprime le nouveau fichier
+          fs.unlink(directoryPath + filename, (err) => {
+            if (err) throw err;
+            // Si le nouveau fichier est supprimé on télécharge l'ancien
+            filename = req.body.name;
+          })
+        }
+      });
+    });
+  }
   const filepath = path.join(__dirname, `../public/stylesheets/${filename}`);
   res.setHeader('Content-Type', 'text/css');
   res.setHeader('Content-Disposition', `attachment; filename=${filename}`);
@@ -133,8 +151,9 @@ function getVariables(path){
 }
 
 
-function storeMaker(variables) {
+function storeMaker(kitName, variables) {
   return {
+    name: kitName,
     layout:{
       container: {
         "marginX": variables['--kitui-layout-container-marginX'].slice(0, -2),
