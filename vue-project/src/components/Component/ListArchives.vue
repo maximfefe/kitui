@@ -4,7 +4,7 @@
       <div class="indicator-item tooltip tooltip-right" data-tip="Vous perdrez vos modifications en cours." >
         <span class="badge">!</span>
       </div>
-      <select class="select select-secondary select-sm max-w-xs me-2" @change="searchArchive($event)">
+      <select class="select select-secondary select-sm max-w-xs me-2" @click="archiveList()" @change="searchArchive($event)">
         <option disabled selected>Veuillez selectionner une archive</option>
         <option v-for="archive in archives" :value="archive">{{ archive }}</option>
       </select>
@@ -57,9 +57,6 @@ export default {
         this.$refs.ButtonCopyComponent.resetButton();
       });
     },
-  },
-  mounted() {
-    this.archiveList();
   },
   computed: {
     ...mapStores(useKituiStore),
