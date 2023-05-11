@@ -41,7 +41,6 @@ export default {
     <div class="flex flex-wrap">
       <div class="md:w-1/5 w-full p-2">
         <SubNav/>
-        <DownloadButton class="hidden sm:block w-full my-5 btn btn-sm btn-outline btn-secondary"/>
       </div>
 
       <div class="md:w-2/5 w-full p-2">
@@ -62,7 +61,7 @@ export default {
               <img alt="Vue logo" class="logo-content" src="/kitUIfavicon.svg" width="100" height="100" />
               <img alt="Vue logo" class="logo-content" src="/kitUIfavicon.svg" width="100" height="100" />
               <img alt="Vue logo" class="logo-content" src="/kitUIfavicon.svg" width="100" height="100" />
-              
+
             </GridComponent>
 
             <PreviewColors v-if="$route.path === '/colors'"/>

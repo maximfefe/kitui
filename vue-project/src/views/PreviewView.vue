@@ -9,9 +9,15 @@ import PreviewTitle from '@/components/PreviewTitle.vue'
 
 import {useKituiStore} from '@/stores/kitui'
 import {mapStores} from 'pinia'
+import DownloadButton from "@/components/DownloadButton.vue"
+import SubNav from "@/components/SubNav.vue";
+import { RouterLink } from 'vue-router'
 
 export default {
   components:{
+      RouterLink,
+      SubNav,
+      DownloadButton,
     PreviewContainer,
     ButtonComponent,
     LinkComponent,
@@ -34,8 +40,14 @@ export default {
 <template>
   <main class="container mx-auto">
     <div class="preview m-2">
-      <div class="rounded-box bg-base-200 p-4 mb-2">
-        <ListArchives />
+      <div class="rounded-box bg-base-200 p-4 mb-2 flex justify-center flex-col sm:flex-row">
+        <div class="w-1/2 m-auto flex justify-center">
+            <ListArchives class="m-auto my-1"/>
+        </div>
+        <div class="w-1/2 m-auto flex flex-col justify-center">
+            <RouterLink  class="sm:w-1/2 m-auto btn btn-sm btn-outline btn-info" to="/">Customiser</RouterLink>
+            <DownloadButton class="sm:w-1/2 block m-auto my-1 btn btn-sm btn-accent"/>
+        </div>
       </div>
       <PreviewContainer class="">
           <template #content>
