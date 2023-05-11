@@ -9,22 +9,33 @@ export default {
   // props:['classe'],
   methods: {
     async generateCss() {
-      const store = useKituiStore();
+
+      const kituiStore = useKituiStore();
       try {
-        const response = await fetch(import.meta.env.VITE_API_URL + '/generate-css', {
+        await fetch(import.meta.env.VITE_API_URL + '/generate-css', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(store.kitui)
-        });
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(new Blob([blob]));
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', 'kitui.css'); // Le nom du fichier de téléchargement
-        document.body.appendChild(link);
-        link.click();
+          body: JSON.stringify(kituiStore.kitui)
+        })
+        .then(response => response.json())
+        .then(data => {
+          // extraire le nom et le contenu du fichier CSS du JSON
+          const { name, css } = data;
+          kituiStore.updateProperty('name', `${name}`)
+          const blob = new Blob([css], { type: 'text/css' });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'kitui';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          // libérer l'URL créée
+          URL.revokeObjectURL(url);
+        })
+        document.getElementById('my-modal').checked = true;
       } catch (error) {
         console.error(error);
       }

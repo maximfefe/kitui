@@ -5,6 +5,7 @@ const path = require('path');
 const cors = require('cors');
 const { faker } = require('@faker-js/faker');
 const css = require('css');
+const { log } = require('console');
 
 router.use(express.json());
 router.use(cors());
@@ -58,33 +59,33 @@ router.post('/generate-css', (req, res) => {
     fs.mkdirSync(archivesDirectoryPath);
   }
   let filename = generateCss(req.body);
-  if (req.body.name !== null){
-    const directoryPath = path.join(__dirname, '../public/stylesheets/')
-    fs.readFile(directoryPath + filename, (err1, newCss) => {
-      if (err1) throw err1;
-      fs.readFile(`${directoryPath}archives/${req.body.name}`, (err2, existingCss) => {
-        if (err2) throw err2;
-        // Si le nouveau fichier est identique à l'ancien (Téléchargement d'une archive sans modifications)
-        if (newCss.toString() === existingCss.toString()) {
-          // On supprime le nouveau fichier
-          fs.unlink(directoryPath + filename, (err) => {
-            if (err) throw err;
-            // Si le nouveau fichier est supprimé on télécharge l'ancien
-            filename = req.body.name;
-          })
-        }
-      });
-    });
-  }
-  const filepath = path.join(__dirname, `../public/stylesheets/${filename}`);
-  res.setHeader('Content-Type', 'text/css');
-  res.setHeader('Content-Disposition', `attachment; filename=${filename}`);
-  res.download(filepath, (err) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Erreur lors du téléchargement du fichier');
+
+  if (req.body.name !== null) {
+    try {
+      const newCss = fs.readFileSync(archivesDirectoryPath + "/" + filename);
+      console.log(`${archivesDirectoryPath}/${req.body.name}`);
+      const existingCss = fs.readFileSync(`${archivesDirectoryPath}/${req.body.name}`);
+      
+      //css existant
+      if (newCss.toString() === existingCss.toString()) {
+        fs.unlink(archivesDirectoryPath + "/" + filename, (err) => {
+          if (err) throw err;
+        })
+        filename = req.body.name;
+      }
+    } catch (error) {
+      console.error(error);
     }
-  });
+  }
+  const filepath = path.join(__dirname, `../public/stylesheets/archives/${filename}`);
+  res.setHeader('Content-Type', 'application/json');
+  res.statusCode = 200;
+  const css = fs.readFileSync(filepath, 'utf8');
+  const data = {
+    name: filename,
+    css: css,
+  };
+  res.json(data);
 });
 
 function generateCss(data) {
@@ -128,7 +129,7 @@ function generateCss(data) {
   // Écrire la nouvelle version du fichier CSS avec le contenu ajouté
   fs.writeFileSync(path.join(__dirname, `../public/stylesheets/archives/${name}.css`), css, 'utf-8');
 
-  return `archives/${name}.css`;
+  return `${name}.css`;
 }
 
 function getName() {

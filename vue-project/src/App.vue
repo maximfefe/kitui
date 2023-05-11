@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import DownloadButton from "@/components/DownloadButton.vue";
+import ModalAlert from "@/components/ModalAlert.vue";
 </script>
 
 <template>
@@ -30,7 +31,7 @@ import DownloadButton from "@/components/DownloadButton.vue";
       </div>
     </div>  
   </header>
-
   <RouterView />
+  <ModalAlert/>
   
 </template>

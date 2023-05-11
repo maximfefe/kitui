@@ -41,6 +41,7 @@ export default {
     <div class="flex flex-wrap">
       <div class="md:w-1/5 w-full p-2">
         <SubNav/>
+        <DownloadButton class="hidden sm:block w-full my-5 btn btn-sm btn-accent"/>
       </div>
 
       <div class="md:w-2/5 w-full p-2">
