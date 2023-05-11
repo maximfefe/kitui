@@ -119,3 +119,41 @@ export default {
     },
 }
 </script>
+
+<style>
+
+/*
+ * CUSTOM STYLE INPUT COLOR
+ */
+
+ input[type="color"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 3em;
+    padding: 0;
+    width: 3em;
+}
+
+
+::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+::-webkit-color-swatch{
+    border: 0;
+    border-radius:50%;
+}
+
+::-moz-color-swatch,
+::-moz-focus-inner{
+    border: 0;
+}
+
+::-moz-focus-inner{
+    padding: 0;
+}
+</style>
