@@ -3,11 +3,11 @@
 .grid{display: grid;grid-template-columns: repeat(var(--kitui-layout-grid-column), 1fr);grid-column-gap: var(--kitui-layout-grid-column-gap);grid-row-gap: var(--kitui-layout-grid-row-gap)}
 h1, h2, h3, h4, h5, h6 {font-family: var(--title-font);font-weight: var(--title-weight);}
 h1{font-size: var(--title-size);}
-h2{font-size: var(--title-size);}
-h3{font-size: var(--title-size);}
-h4{font-size: var(--title-size);}
-h5{font-size: var(--title-size);}
-h6{font-size: var(--title-size);}
+h2{font-size: calc(var(--title-size)*0.9);}
+h3{font-size: calc(var(--title-size)*0.8);}
+h4{font-size: calc(var(--title-size)*0.7);}
+h5{font-size: calc(var(--title-size)*0.6);}
+h6{font-size: calc(var(--title-size)*0.5);}
 p{font-family: var(--text-font);font-size: var(--text-size);}
 .btn{font-size: var(--btn-font-size);background-color: var(--btn-bg-color);color: var(--kitui-colors-accent);border-radius: var(--btn-border-radius);padding: var(--btn-padding);margin: var(--btn-margin); border:none;}
 .card{border-radius: var(--card-border-radius);padding: var(--card-padding);margin: var(--card-margin);}
